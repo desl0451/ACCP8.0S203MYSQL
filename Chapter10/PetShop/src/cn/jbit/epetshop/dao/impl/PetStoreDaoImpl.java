@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.jbit.epetshop.dao.PetStoreDao;
+import cn.jbit.epetshop.entity.PetOwner;
 import cn.jbit.epetshop.entity.PetStore;
 
 public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
@@ -75,5 +76,10 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 	public int updateStore(String sql, Object[] param) {
 		return this.executeUpdate(sql, param);
 	}
-
+	public static void main(String[] args) {
+		PetStoreDaoImpl dao = new PetStoreDaoImpl();
+		String[] param = { "北京信息中心", "123456", "624" };
+		PetStore d = dao.getPetStore("SELECT * FROM petstore WHERE `name`=? AND `password`=? AND `balance`=?", param);
+		System.out.println(d.getName() + "\t" + d.getPassword());
+	}
 }

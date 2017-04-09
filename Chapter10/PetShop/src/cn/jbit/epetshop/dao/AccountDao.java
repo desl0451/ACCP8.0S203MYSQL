@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package cn.jbit.epetshop.dao;
 
 import java.util.List;
@@ -16,10 +15,4 @@ public interface AccountDao {
 	 */
 	public abstract List<Account> getPetStoreAccount(String sql, String[] param);
 }
-=======
-package cn.jbit.epetshop.dao;
 
-public interface AccountDao {
-
-}
->>>>>>> origin/master

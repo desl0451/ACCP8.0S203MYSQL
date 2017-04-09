@@ -11,9 +11,14 @@ public class PetFactoryImpl implements PetFactory {
 	 * 宠物工程培育新品种宠物
 	 */
 	@Override
-	public Pet breadNewPet(String[] petParam) {
-		// TODO Auto-generated method stub
-		return null;
+	public Pet breedNewPet(String[] petParam) {
+		Pet pet = new Pet();// 创建宠物对象
+		pet.setName(petParam[0]);
+		pet.setTypeName(petParam[1]);
+		pet.setHealth(Integer.parseInt(petParam[2]));
+		pet.setLove(Integer.parseInt(petParam[3]));
+		pet.setStoreId(Integer.parseInt(petParam[4]));
+		return pet;
 	}
 
 }

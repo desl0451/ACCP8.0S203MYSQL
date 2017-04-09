@@ -8,12 +8,12 @@ import cn.jbit.epetshop.service.PetOwnerService;
  */
 public class PetOwnerServiceImpl implements PetOwnerService {
 	/**
-	 * 宠物主人购买库存宠物，根据页面获得到的序号，来实际调用购买库存宠物或者购买新培育的宠物
+	 * 宠物主人购买库存宠物，根据页面获得到的序号，
+	 * 来实际调用购买库存宠物或者购买新培育的宠物
 	 */
 	@Override
 	public void buy(Pet pet) {
-		// TODO Auto-generated method stub
-
+		
 	}
 	/**
 	 * 宠物主人向宠物商店卖出自己宠物

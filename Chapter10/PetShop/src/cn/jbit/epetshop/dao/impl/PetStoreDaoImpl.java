@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.jbit.epetshop.dao.PetStoreDao;
+import cn.jbit.epetshop.entity.PetOwner;
 import cn.jbit.epetshop.entity.PetStore;
 
 public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
@@ -16,7 +17,9 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 	private PreparedStatement pstmt = null; // 用于执行SQL语句
 
 	private ResultSet rs = null; // 用户保存查询结果集
-
+	/**
+	 * 查询出所有宠物商店
+	 */
 	@Override
 	public List<PetStore> getAllStore() {
 		List<PetStore> petPetStoreList = new ArrayList<PetStore>();
@@ -41,7 +44,9 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 		}
 		return petPetStoreList;
 	}
-
+	/**
+	 * 根据查询条件查询出宠物商店
+	 */
 	@Override
 	public PetStore getPetStore(String sql, String[] param) {
 		PetStore petStore = null;
@@ -70,10 +75,17 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 		}
 		return petStore;
 	}
-
+	/**
+	 * 更新宠物商店信息
+	 */
 	@Override
 	public int updateStore(String sql, Object[] param) {
 		return this.executeUpdate(sql, param);
 	}
-
+	public static void main(String[] args) {
+		PetStoreDaoImpl dao = new PetStoreDaoImpl();
+		String[] param = { "北京信息中心", "123456", "624" };
+		PetStore d = dao.getPetStore("SELECT * FROM petstore WHERE `name`=? AND `password`=? AND `balance`=?", param);
+		System.out.println(d.getName() + "\t" + d.getPassword());
+	}
 }

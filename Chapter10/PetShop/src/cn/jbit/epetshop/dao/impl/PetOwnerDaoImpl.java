@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.jbit.epetshop.dao.PetOwnerDao;
+import cn.jbit.epetshop.entity.Pet;
 import cn.jbit.epetshop.entity.PetOwner;
 
 public class PetOwnerDaoImpl extends BaseDao implements PetOwnerDao {
@@ -58,8 +59,34 @@ public class PetOwnerDaoImpl extends BaseDao implements PetOwnerDao {
 	 */
 	@Override
 	public PetOwner selectOwner(String sql, String[] param) {
-		// TODO Auto-generated method stub
-		return null;
+		PetOwner petOwner = new PetOwner();
+		try {
+			conn = getConn();
+			pstmt = conn.prepareStatement(sql);
+			if (param != null) {
+				for (int i = 0; i < param.length; i++) {
+					pstmt.setObject(i + 1, param[i]);
+				}
+			}
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				petOwner.setId(rs.getInt("id"));
+				petOwner.setMoney(rs.getInt("money"));
+				petOwner.setName(rs.getString("name"));
+				petOwner.setPassword(rs.getString("password"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.closeAll(conn, pstmt, rs);
+		}
+		return petOwner;
 	}
 
+	public static void main(String[] args) {
+		PetOwnerDaoImpl dao = new PetOwnerDaoImpl();
+		String[] param = { "小强", "123456", "498" };
+		PetOwner d = dao.selectOwner("SELECT * FROM petowner WHERE `name`=? AND `password`=? AND `money`=?", param);
+		System.out.println(d.getName() + "\t" + d.getPassword());
+	}
 }

@@ -9,5 +9,5 @@ public interface PetFactory {
 	/**
 	 * 培育新品种宠物
 	 */
-	public Pet breadNewPet(String[] petParam);
+	public Pet breedNewPet(String[] petParam);
 }

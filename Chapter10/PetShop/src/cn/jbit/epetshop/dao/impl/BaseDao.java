@@ -17,7 +17,9 @@ public class BaseDao {
 	public static String DBPASS; // 数据库密码
 
 	Connection conn = null;// 数据连接对象
-
+	static{
+		init();
+	}
 	/**
 	 * 初始化连接参数,从配置文件里获得
 	 */

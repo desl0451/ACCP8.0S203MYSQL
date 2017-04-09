@@ -1,0 +1,2 @@
+本文件夹提供由powerDesigner工具生成得CDM、PDM文件。
+powerDesigner同visio一样，也是一种常用的数据库设计工具，建议学员查阅资料自学或由教员补充讲解相应使用方法。

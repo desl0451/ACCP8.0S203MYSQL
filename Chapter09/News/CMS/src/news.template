@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>{title}</title>
+	</head>
+	<body>
+		<table align="center" width="70%" border="1">
+			<tr>
+				<td width="10%">
+					<b>标题：</b>
+				</td>
+				<td>
+					{title}
+				</td>
+			</tr>
+			<tr>
+				<td width="10%">
+					<b>作者：</b>
+				</td>
+				<td>
+					{author}
+				</td>
+			</tr>
+			<tr>
+				<td width="10%">
+					<b>时间：</b>
+				</td>
+				<td>
+					{createTime}
+				</td>
+			</tr>
+			<tr>
+				<td width="10%">
+					<b>内容：</b>
+				</td>
+				<td>
+					{content}
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

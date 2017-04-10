@@ -20,8 +20,8 @@ public class PetDaoImpl extends BaseDao implements PetDao {
 	 */
 	@Override
 	public List<Pet> getAllPet() {
+		// TODO 查询所有宠物信息
 		List<Pet> pList = new ArrayList<Pet>();
-
 		try {
 			conn = getConn();
 			PreparedStatement pstmt = null;
@@ -54,6 +54,7 @@ public class PetDaoImpl extends BaseDao implements PetDao {
 	 */
 	@Override
 	public List<Pet> selectPet(String sql, String[] param) {
+		// TODO 根据已知宠物的信息查询宠物信息
 		List<Pet> plist = new ArrayList<Pet>();
 		try {
 			conn = getConn();
@@ -89,6 +90,7 @@ public class PetDaoImpl extends BaseDao implements PetDao {
 	 */
 	@Override
 	public int updatePet(String sql, Object[] param) {
+		// TODO 更新宠物信息
 		return this.executeUpdate(sql, param);
 	}
 

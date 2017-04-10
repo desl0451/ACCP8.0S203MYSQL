@@ -17,13 +17,15 @@ public class BaseDao {
 	public static String DBPASS; // 数据库密码
 
 	Connection conn = null;// 数据连接对象
-	static{
+	static {
 		init();
 	}
+
 	/**
 	 * 初始化连接参数,从配置文件里获得
 	 */
 	public static void init() {
+		// TODO 初始化连接参数,从配置文件里获得
 		Properties params = new Properties();
 		String configFile = "database.properties";// 配置文件路径
 		// 加载配置文件到输入流中
@@ -48,6 +50,7 @@ public class BaseDao {
 	 * @return
 	 */
 	public Connection getConn() throws ClassNotFoundException, SQLException {
+		// TODO 获得连接
 		Connection conn = null;
 		try {
 			Class.forName(DRIVER); // 注册驱动
@@ -66,6 +69,7 @@ public class BaseDao {
 	 * @param rs
 	 */
 	public void closeAll(Connection conn, Statement stmt, ResultSet rs) {
+		// TODO 关闭资源
 		try {
 			if (rs != null) {
 				rs.close();
@@ -97,6 +101,7 @@ public class BaseDao {
 	 * @return
 	 */
 	public int executeUpdate(String sql, Object[] param) {
+		// TODO 添加,修改,删除
 		int num = 0;
 		Connection conn = null;
 		PreparedStatement pstmt = null;

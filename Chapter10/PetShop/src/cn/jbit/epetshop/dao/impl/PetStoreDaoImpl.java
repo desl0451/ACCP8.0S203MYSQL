@@ -22,6 +22,7 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 	 */
 	@Override
 	public List<PetStore> getAllStore() {
+		// TODO 查询出所有宠物商店
 		List<PetStore> petPetStoreList = new ArrayList<PetStore>();
 
 		try {
@@ -49,6 +50,7 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 	 */
 	@Override
 	public PetStore getPetStore(String sql, String[] param) {
+		// TODO 根据查询条件查询出宠物商店
 		PetStore petStore = null;
 		try {
 			conn = this.getConn(); // 得到数据库连接
@@ -80,6 +82,7 @@ public class PetStoreDaoImpl extends BaseDao implements PetStoreDao {
 	 */
 	@Override
 	public int updateStore(String sql, Object[] param) {
+		// TODO 更新宠物商店信息
 		return this.executeUpdate(sql, param);
 	}
 	public static void main(String[] args) {

@@ -12,6 +12,7 @@ public class PetFactoryImpl implements PetFactory {
 	 */
 	@Override
 	public Pet breedNewPet(String[] petParam) {
+		// TODO 宠物工程培育新品种宠物
 		Pet pet = new Pet();// 创建宠物对象
 		pet.setName(petParam[0]);
 		pet.setTypeName(petParam[1]);

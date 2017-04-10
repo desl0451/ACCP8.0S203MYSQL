@@ -8,13 +8,16 @@ import cn.jbit.epetshop.dao.impl.PetStoreDaoImpl;
 import cn.jbit.epetshop.entity.Pet;
 import cn.jbit.epetshop.entity.PetOwner;
 import cn.jbit.epetshop.entity.PetStore;
-
+/**
+ * @author DESL
+ */
 public class Test {
 
 	public static void main(String[] args) {
 		System.out.println("宠物商店启动");
 		System.out.println("Wonderland醒来,所有SQLServer中醒来");
 		System.out.println("*************************************");
+		// TODO 显示宠物名称
 		PetDaoImpl dao = new PetDaoImpl();
 		List<Pet> pList = dao.getAllPet();
 		System.out.println("序号\t宠物名称");

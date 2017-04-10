@@ -22,6 +22,7 @@ public class PetOwnerDaoImpl extends BaseDao implements PetOwnerDao {
 	 */
 	@Override
 	public List<PetOwner> getAllOwner() {
+		// TODO 查询所有宠物主人信息
 		List<PetOwner> petOwnerList = new ArrayList<PetOwner>();
 		try {
 			conn = getConn();
@@ -51,6 +52,7 @@ public class PetOwnerDaoImpl extends BaseDao implements PetOwnerDao {
 	 */
 	@Override
 	public int updateOwner(String sql, String[] param) {
+		// TODO 更新宠物主人信息
 		return this.executeUpdate(sql, param);
 	}
 
@@ -59,6 +61,7 @@ public class PetOwnerDaoImpl extends BaseDao implements PetOwnerDao {
 	 */
 	@Override
 	public PetOwner selectOwner(String sql, String[] param) {
+		// TODO 根据查询条件查询宠物主人信息
 		PetOwner petOwner = new PetOwner();
 		try {
 			conn = getConn();

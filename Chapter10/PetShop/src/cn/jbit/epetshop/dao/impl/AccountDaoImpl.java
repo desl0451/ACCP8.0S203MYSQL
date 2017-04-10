@@ -21,6 +21,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
 	 */
 	@Override
 	public int updateAccount(String sql, Object[] param) {
+		// TODO 更新台帐信息
 		return this.executeUpdate(sql, param);
 	}
 
@@ -29,6 +30,7 @@ public class AccountDaoImpl extends BaseDao implements AccountDao {
 	 */
 	@Override
 	public List<Account> getPetStoreAccount(String sql, String[] param) {
+		// TODO 根据查询条件查询出宠物商店帐单
 		List<Account> alist = new ArrayList<Account>();
 		try {
 			conn = getConn();

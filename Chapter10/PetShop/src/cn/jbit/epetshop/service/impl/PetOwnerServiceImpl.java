@@ -17,7 +17,14 @@ public class PetOwnerServiceImpl implements PetOwnerService {
 	 */
 	@Override
 	public void buy(Pet pet) {
-		//TODO 宠物主人购买库存宠物，根据页面获得到的序号， 来实际调用购买库存宠物或者购买新培育的宠物
+		// TODO 宠物主人购买库存宠物，根据页面获得到的序号，
+		// 来实际调用购买库存宠物或者购买新培育的宠物
+		//// 查询出主人信息
+		String sql = "select * from petowner where id=?";
+		String param[] = { String.valueOf(pet.getOwnerId()) };
+		PetOwnerDaoImpl petownerDao = new PetOwnerDaoImpl();
+		PetOwner owner = petownerDao.selectOwner(sql, param);
+		
 	}
 
 	/**

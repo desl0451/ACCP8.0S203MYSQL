@@ -19,5 +19,4 @@ public interface PetDao {
 	 * 更新宠物信息
 	 */
 	public abstract int updatePet(String sql, Object[] param);
-
 }

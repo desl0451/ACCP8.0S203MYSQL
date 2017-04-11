@@ -18,7 +18,7 @@ public interface PetStoreService extends Buyable, Sellable, Breedable, Accountab
 	/**
 	 * 查询出所有新培育的宠物
 	 */
-	public List<Pet> getPetsBread();
+	public List<Pet> getPetsBreed();
 
 	/**
 	 * 查询出所有新培育的宠物

@@ -9,5 +9,5 @@ public interface Breedable {
 	/**
 	 * 宠物繁殖
 	 */
-	public Pet breed(String pet);
+	public Pet breed(String petType);
 }

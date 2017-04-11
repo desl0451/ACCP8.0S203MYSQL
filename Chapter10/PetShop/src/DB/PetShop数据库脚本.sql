@@ -1,48 +1,53 @@
+/*项目数据库*/
 DROP DATABASE IF EXISTS petShop;
 CREATE DATABASE petShop;
 USE petShop;
 /*创建表*/
+DROP TABLE IF EXISTS `petStore`;
 CREATE TABLE `petStore`(
-	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`name` CHAR(10) NULL,
-	`password` CHAR(10) NULL,
-	`balance` INT(4) NULL
- )ENGINE=INNODB DEFAULT CHARSET=utf8;
- petshop
- CREATE TABLE `petOwner`(
-	id INT(4) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`name` CHAR(10) NULL,
-	`password` CHAR(10) NULL,
-	`money` INT(4) NULL
-)ENGINE=INNODB DEFAULT CHARSET=utf8;
+	`id`             INT            COMMENT '宠物商店编号' AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`name`       CHAR(10)  COMMENT '宠物商店名称' NULL,
+	`password` CHAR(10)  COMMENT '宠物商店密码' NULL,                      
+	`balance`   INT(4)        COMMENT '账目结余'       NULL
+ )ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='宠物商店表';
+ 
+DROP TABLE IF EXISTS `petOwner`;
+CREATE TABLE `petOwner`(
+	`id`             INT(4)    NOT NULL  COMMENT '宠物主人编号' AUTO_INCREMENT  PRIMARY KEY,
+	`name`       CHAR(10)       NULL  COMMENT '宠物主人姓名',
+	`password` CHAR(10)       NULL  COMMENT '宠物主人密码',
+	`money`     INT(4)            NULL  COMMENT '钱'
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='宠物主人表';
 
+DROP TABLE IF EXISTS `pet`;
 CREATE TABLE `pet`(
-	id INT(4) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`name` CHAR(10) NOT NULL,
-	`typeName` CHAR(10) NULL,
-	`health` INT(4) NULL,
-	`love` INT(4) NULL,
-	`birthday` TIMESTAMP NULL,
-	`owner_id` INT(4) NULL,
-	`store_id` INT(4) NULL
-)ENGINE=INNODB DEFAULT CHARSET=utf8;
+	`id`              INT(4)        COMMENT '宠物编号'    AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`name`        CHAR(10)   COMMENT '宠物名字'    NOT NULL,
+	`typeName` CHAR(10)   COMMENT '宠物品种'     NULL,
+	`health`       INT(4)        COMMENT '健康值'        NULL,
+	`love`          INT(4)        COMMENT '亲密度'        NULL,
+	`birthday`   TIMESTAMP COMMENT '出生日期'     NULL,
+	`owner_id`  INT(4)        COMMENT '主人编号'     NULL,
+	`store_id`   INT(4)        COMMENT '宠物店编号'  NULL
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='宠物表';
 
+DROP TABLE IF EXISTS `account`;
 CREATE TABLE `account`(
-	`id` INT(4) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-	`deal_type` INT(4) NULL,
-	`pet_id` INT(4) NULL,
-	`seller_id` INT(4) NULL,
-	`buyer_id` INT(4) NULL,
-	`price` INT(4) NULL,
-	`deal_time` TIMESTAMP NULL
-)ENGINE=INNODB DEFAULT CHARSET=utf8;
+	`id`                INT(4)         COMMENT '账目编号' AUTO_INCREMENT NOT NULL PRIMARY KEY,
+	`deal_type`    INT(4)         COMMENT '交易类型' NULL,
+	`pet_id`         INT(4)         COMMENT '宠物编号' NULL,
+	`seller_id`      INT(4)         COMMENT '卖家编号' NULL,
+	`buyer_id`     INT(4)         COMMENT '买家编号' NULL,
+	`price`           INT(4)         COMMENT '价格' NULL,
+	`deal_time`   TIMESTAMP COMMENT '交易时间' NULL
+)ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='账目表';
 
 
 /*创建外键*/
 ALTER TABLE `account`  ADD  CONSTRAINT fk_account_pet FOREIGN KEY(pet_id) REFERENCES `pet` (`id`);
 ALTER TABLE `account`  ADD  CONSTRAINT fk_account_petOwner FOREIGN KEY(seller_id) REFERENCES `petOwner` (`id`);
-ALTER TABLE `pet`  ADD  CONSTRAINT fk_pet_petOwner FOREIGN KEY(owner_id) REFERENCES `petOwner` (`id`) ;
-ALTER TABLE  `pet`  ADD  CONSTRAINT fk_pet_petStore FOREIGN KEY(store_id) REFERENCES petStore (`id`);
+ALTER TABLE `pet`         ADD  CONSTRAINT fk_pet_petOwner FOREIGN KEY(owner_id) REFERENCES `petOwner` (`id`) ;
+ALTER TABLE `pet`        ADD  CONSTRAINT fk_pet_petStore FOREIGN KEY(store_id) REFERENCES petStore (`id`);
 
 
 /*插入数据*/

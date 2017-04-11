@@ -90,7 +90,6 @@ public class PetDaoImpl extends BaseDao implements PetDao {
 	 */
 	@Override
 	public int updatePet(String sql, Object[] param) {
-		// TODO 更新宠物信息
 		return this.executeUpdate(sql, param);
 	}
 
